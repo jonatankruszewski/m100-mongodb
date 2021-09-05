@@ -233,6 +233,7 @@ Check all answers that apply:
 - Read preference. Default: primary. You can read also from 'nearest'
 
 ### Quiz Read/Writes Operation Guarantees
+
 Problem:
 
 Which one of the following are true about read/write preferences and concerns?
@@ -244,3 +245,234 @@ Check all answers that apply:
 - [X] The write concern tells the required durability requested for the write operation.
 - [ ] The write concern tells which server to write data to.
 - [X] The read concern tells the required durability requested for the read operation.
+
+### CHAPTER 2
+
+### QUIZ What to Know Before You Model
+
+Problem:
+
+Which of the following should you keep in mind when you design a data model with MongoDB?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [X] MongoDB supports ACID with the document model and with transactions.
+- [X] The document model encourages keeping related information together.
+- [X] - MongoDB is a distributed database.
+
+### Flexible Methodology for Data Modeling
+
+- Emphasis on workload, not on ER diagram
+- Solouion depends on workload
+- Normalization  vs simplicity or performance.
+- Flexible. Three phasses.
+- Identify the worlokad. Size data, quantify ops, qualify ops.
+- Model relationshups. Embed or link.
+- Apply patterns if possible.
+
+### QUIZ Flexible Methodology for Data Modeling
+
+Which are the three phases of our data modeling methodology?
+
+Check all answers that apply:
+
+- [X] Describe the Workload.
+- [ ] Write the Application Code.
+- [X] Model the Relationships.
+- [X] Apply Patterns.
+- [ ] Draw an Entity-Relationship Diagram.
+
+### Describing a workload.
+
+- First step of our methodology. 
+- List of operations, queries. For example, Coffee to deliver to stores. Quantify amount. Qualify the time, is it critial? What is the latency needed? What is the writeConcern needed? From which node to read?
+- Is it a critical write?
+- Usually one or two operations will stand out
+- Latest version: account information, password.
+- Staleness acceptable: reviews, ratings, list of restaurants
+  
+### QUIZ Describing a Workload
+
+Problem:
+
+Which one of the following is the best reason to describe the workload as the first phase of the methodology?
+Attempts Remaining:∞Unlimited Attempts
+
+- [ ] There is only one solution to data normalization.
+- [ ] A solution for a huge amount of data requires an entity relationship diagram.
+- [X] Different workloads could lead to different data model solutions.
+- [ ] Because you want to apply schema design patterns.
+
+### QUIZ Describing a Workload Quiz 2
+
+Which of the following would be a qualitative aspect of a write operation?
+Attempts Remaining:∞Unlimited Attempts
+
+Choose the best answer:
+
+- [ ] The operation happens 1000 times per second.
+- [X] The operation requires a durability of "majority."
+- [ ] The data written should be destroyed in 1 year.
+- [ ] The operation must be acknowedged back to the client in 10 ms.
+
+### EMBEDDING VS REFERENCING
+
+- Embedding is placing the child into the parent
+- Referencing, uses a unique idenifier
+- Reference for 1 to many
+- Prefer embedding over referencing
+- Embed: for integrity, for data deleted together
+- Reference: When the many is considerably large
+- Ref: For integrity on write operations many-many
+- Ref: when a piece is used, but not the other one and memory is an issue.
+
+### QUIZ Embedding vs Referencing
+
+Problem:
+
+Which of the following criteria influence the choice of embedding instead of referencing a given relationship?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [X] The two entities are always read together.
+- [X] The two entities have a one-to-many relationship and are always modified together.
+- [ ] One entity can be related to 10 million entities in the second table.
+
+### QUIZ Embedding vs Referencing Quiz 2
+
+Problem:
+
+The queries on a application are mostly on users. In other words, it user-centric.
+
+Each user can have many addresses. The addresses and the user are always read or updated together.
+
+How should you model the relationship between the user and the addresses in MongoDB?
+
+Attempts Remaining:∞Unlimited Attempts
+
+Choose the best answer:
+
+- [ ] The address document should reference a collection holding the user document.
+- [X] The addresses should be embedded as an array in the user document.
+- [ ] The user should be a subdocument in the address document.
+- [ ] The user document should reference a collection holding the address documents.
+
+
+### Applying patterns
+
+- Schema design pattern
+- Common language to express representation in your schema model
+
+Some patterns:
+- Computed pattern: Good for repetitive calculations.
+- Bucket pattern: Most common on IOT. Data is grouped. One document per device per day, or per hour. 
+- Extended reference: Reference to another collection, but keeping the most frequent fields within the parent.
+- Recipes to improve schemas.
+- Some patterns may intruduce data staleness or data duplication.
+
+### QUIZ Schema Design Patterns Quiz 1
+
+Problem:
+
+Which of the following are true statements about schema design patterns?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [ ] They help normalize the data model.
+- [X] They are a common language to understand design intents.
+- [X] They often are denormalizations or transformations to improve performance.
+
+### QUIZ Schema Design Patterns Quiz 2
+
+Problem:
+
+How are schema design patterns used in modeling for MongoDB?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [ ] They normalize the data model.
+- [X] They are applied when needed for a given use case
+- [X] They are all applied to all use cases
+
+### SCHEMA VALIDATION
+
+- Constrains in your data
+- Ensure field exists, are non nul, have a type, restrict some values.
+- Uses JSON Schema
+- Report: warning or error.
+- Validate: new documents, existing.
+
+### QUIZ
+
+Schema Validation
+Problem:
+
+Which of the following can be validated through schema validation in MongoDB?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [X] A document has either one of two strict shapes.
+- [X] Values are within a set of acceptable values for a given field.
+- [ ] Documents in different collections have referential integrity.
+- [X] Values have the right type for a given field.
+  
+### Sharding
+
+- Process of splitting the DB into 2 or more parts.
+- Scale a large data set horizontally. Instead of better servers.
+- Allows to put data in different geographical regions.
+- A DB is partitioned in several shard. The shards are based on a sharded key.
+- Scale for read or for write.
+- Scaling for write: choosing a key that will distribute the writes evenly among the shards.
+- Scaling for read:
+- Queries that don't use the shard key, won't scale, they will query all the shards
+- Most dataset don't require shards
+- Sharding for write or for read?
+- Choose the best shard key. 
+
+### QUIZ Sharding
+
+Problem:
+
+Which one of the following actions permits to scale horizontally?
+Attempts Remaining:∞Unlimited Attempts
+
+Choose the best answer:
+
+- [X] Add a shard to the cluster.
+- [ ] Add more disk space.
+- [ ] Add more memory to the servers.
+- [ ] Move the cluster to Atlas in the Cloud.
+- [ ] Add a member in the replica set.
+
+### Data INTEGRITY
+
+- Entity, refrential, domain, user-defined. (SQL)
+- Unique primary key.
+- Unique compound indexes.
+- No foreign keys.
+- Cascading deletes not supported.
+- Document Validation with JSON Schema
+- Change streams on write operations.
+- Atlas triggers.
+
+### QUIZ Data Integrity
+
+Problem:
+
+Which of the following are ways MongoDB helps keep the integrity of the data?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [ ] Cascading deletes are supported in the MongoDB database server.
+- [X] Change streams can be used to create triggers to implement user-defined integrity checks.
+- [X] The document model guarantees referential integrity between parent and child entities.
+
+
+## CHAPTER 3 
