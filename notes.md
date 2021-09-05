@@ -476,3 +476,266 @@ Check all answers that apply:
 
 
 ## CHAPTER 3 
+
+### Query languages
+
+- MQL, mongo query language. Easy to handle, simple queries for CRUD.
+- Aggregation, pipeline transformations. Composable, easy to debug. Designed by stages. For data processing.
+
+### QUIZ Query Languages
+
+Problem:
+
+How are nested SQL queries interpreted to understand the query logic?
+Attempts Remaining:∞Unlimited Attempts
+
+Choose the best answer:
+
+- [ ] bottom-to-top
+- [ ] top-to-bottom
+- [X] inside-out
+- [ ] outer-to-inner
+
+### QUIZ Query Languages Quiz 2
+
+Problem:
+
+How are MongoDB Aggregation Pipelines interpreted to understand the query logic?
+Attempts Remaining:∞Unlimited Attempts
+
+Choose the best answer:
+
+- [ ] outer-to-inner
+- [ ] bottom-to-top
+- [X] top-to-bottom
+- [ ] inside-out
+
+### QUIZ Query Languages Quiz 3
+
+Problem:
+
+Which of the following are available query languages in MongoDB?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [ ] Structure Query Language (SQL)
+- [X] MongoDB Aggregation Framework
+- [ ] MongoDB MongoShell
+- [X] MongoDB Query Language (MQL)
+
+### QUIZ Query Languages Quiz 4
+
+Problem:
+
+Which are valid statements for SQL queries and for Aggregation queries?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [X] SQL uses nested statements.
+- [ ] MongoDB Aggregations use nested stages.
+- [X] MongoDB Aggregations uses sequential stages.
+- [ ] SQL uses sequential statements without nesting.
+
+### MongoDB query language.
+
+- Key-value pairs. Fields are stringified. Separated by comma.
+- db.collection.find() can filter documents.
+- Query operator can specify conditions in the query filter document.
+
+### QUIZ MongoDB Query Language
+
+Problem:
+
+Which function in MQL is equivalent to the SELECT statement in SQL?
+Attempts Remaining:∞Unlimited Attempts
+
+Choose the best answer:
+
+- [ ] query
+- [ ] project
+- [X] find
+- [ ] count
+- [ ] limit
+
+### QUIZ MongoDB Query Language Quiz 2
+
+Problem:
+
+Which of the following functions exist both in SQL and MQL for queries?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [X] skip
+- [X] limit
+- [X] count
+
+### QUIZ MongoDB Query Language Quiz 3
+
+Problem:
+
+Which function in MongoDB Query Language (MQL) is equivalent to the less than (<) operator in SQL?
+Attempts Remaining:∞Unlimited Attempts
+
+Choose the best answer:
+
+- [X] $lt
+- [ ] $lessthan
+- [ ] <
+
+### QUIZ MongoDB Query Language Quiz 4
+
+Problem:
+
+Which function in MongoDB Query Language (MQL) is equivalent to the ORDER BY operator in SQL?
+Attempts Remaining:∞Unlimited Attempts
+
+Choose the best answer:
+
+- [ ] order by
+- [X] sort
+- [ ] order
+
+### MONGODB AGGREGATION FRAMEWORK QUERY
+
+- Complex queries.
+- Doesn't require additional frameworks
+
+SQL     MONGODB
+SELECT	    db.aggregate()
+WHERE	    $match
+GROUP   	$group
+COUNT	    $count
+LIMIT	    $limit
+ORDER BY	$sort
+JOIN	    $lookup
+UNION ALL	$unionWith
+
+### QUIZ MongoDB Aggregation Framework Queries
+
+Problem:
+
+Which stage in the MongoDB Aggregation Framework is equivalent to WHERE clause in SQL's SELECT statement?
+Attempts Remaining:∞Unlimited Attempts
+
+Choose the best answer:
+
+- [X] match
+- [ ] count
+- [ ] limit
+
+### QUIZ MongoDB Aggregation Framework Queries Quiz 2
+
+Problem:
+
+Which stage in the MongoDB Aggregation Framework is equivalent to the ORDER BY function in SQL's SELECT statement?
+Attempts Remaining:∞Unlimited Attempts
+
+Choose the best answer:
+
+- [X] sort
+- [ ] order by
+- [ ] limit
+- [ ] count
+
+### QUIZ MongoDB Aggregation Framework Queries Quiz 3
+
+Problem:
+
+Which stage in the MongoDB Aggregation Framework is equivalent to the LIMIT clause in SQL's SELECT statement?
+Attempts Remaining:∞Unlimited Attempts
+
+Choose the best answer:
+
+- [ ] where
+- [ ] count
+- [ ] limit
+
+### QUIZ MongoDB Aggregation Framework Queries Quiz 4
+
+Problem:
+
+Select the MongoDB Aggregation Framework pipeline that is equivalent to the following SQL statement:
+
+'SELECT * FROM people WHERE status = "A" OR age = 50'
+
+
+Choose the best answer:
+
+```js
+db.people.aggregate([ { $where: { $or: [ { status: { $eq: "A" } }, { age: { $eq: 50 } } ] } } ])
+```
+
+```js
+db.people.aggregate([ { $match: { $or: [ { status: { $eq: "A" } }, { age: { $eq: 50 } } ] } } ])
+```
+
+This one ↓
+
+```js
+db.people.aggregate([ { $match: { $and: [ { status: { $eq: "A" } }, { age: { $eq: 50 } } ] } } ])
+```
+
+### Object mappers
+
+- Code layer that Maps DB tables to objects.
+- Not neccesary.
+- Adds extra latency as a new layer.
+
+### QUIZ Object Mappers
+
+Problem:
+
+Which are the following highlight the impact of an Object Mapper on a database?
+
+Check all answers that apply:
+
+- [ ] In MongoDB, you must index the created object representation.
+- [X] In MongoDB, the data already represents the object so it can be sent without processing.
+- [ ] In a relational database, you must index the created object representation.
+- [X] In a relational database, it gathers data from multiple tables by performing joins to create the object.
+
+### QUIZ Object Mappers Quiz 2
+
+Problem:
+
+What typically maps directly to an object?
+
+Choose the best answer:
+
+- [ ] A record in a RDBMS
+- [X] A document in MongoDB
+
+### QUIZ Code Samples
+
+Problem:
+
+Which programming languages can use the exact same query syntax for the conditions than the MongoDB shell?
+
+Check all answers that apply:
+
+- [ ] Java
+- [X] Python
+- [ ] .NET (CSharp)
+- [X] Javascript (NodeJS)
+
+### QUIZ Code Samples Quiz 2
+
+Problem:
+
+In translating a common MQL query to a coding language, our examples showed several common steps.
+
+Which of the following translation steps was done for all the coding languages?
+
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [X] Used a variable to hold the result of the query on the collection.
+- [X] Used the MongoClient in the programming language to connect to the database.
+- [ ] Used a variable to indicate an index to use when querying the collection.
+- [X] Used a variable which referenced the collection we wanted to query.
+- [X] Used a variable to hold the conditional / filter criteria for the query.
+
