@@ -739,3 +739,92 @@ Check all answers that apply:
 - [X] Used a variable which referenced the collection we wanted to query.
 - [X] Used a variable to hold the conditional / filter criteria for the query.
 
+## CHAPTER 4
+
+### QUIZ Providing High Availability
+
+Problem:
+
+Which of the following is the best definition of High Availability (HA)?
+Attempts Remaining:∞Unlimited Attempts
+
+Choose the best answer:
+
+- [ ] The ability to scale a cluster
+- [X] The capacity to serve operations, even in the event of failures or planned downtime
+- [ ] The replication of the data to other servers
+
+### Server Maintenance
+
+- Upgrading Mongod
+- Install OS
+- fixing hardware
+- challenge: Doing it with the less downtime possible.
+- Replication is built in.
+- If the primary fails, an automatic election will occur.
+- Rolling upgrade: Puting down 1 server on the time for maintainance.
+- Atlas: Auto scaling feature!
+- No need to plan downtime window.
+- Retryable writes
+
+### QUIZ Server Maintenance
+
+Problem:
+
+What happens automatically in MongoDB that allows for server maintenance without downtime?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [ ] MongoDB automatically upgrades itself to the latest available version.
+- [X] Failed write operations are retried automatically once by the MongoDB drivers.
+- [X] A faulty Primary will be replaced by a new Primary by an automatic election.
+
+### QUIZ Server Maintenance Quiz 2
+
+What are the recommended steps to do maintenance on a Primary node without downtime?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [ ] Stop the application from interacting with the MongoDB cluster.
+
+- [ ] Stop all the nodes in the replica set at the same time.
+
+- [X] Step down the Primary node and wait for a Secondary node to take over as the new Primary.
+
+
+### SCHEMA Migration
+
+- SQL requires datetime.
+- No downtime for migration.
+- Migrations just reshape the documments.
+
+### QUIZ Schema Migration
+
+Problem:
+
+Which of the following help achieve a no-downtime schema migration with MongoDB?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [X] The polymorphism aspect of having documents with different shapes within a collection.
+- [X] Each document can carry its schema version number.
+- [ ] Database replication allows us to update one node at the time
+
+### MONGODB as a data Platform
+
+### QUIZ MongoDB as a Data Platform
+
+Problem:
+
+Which of the following are tools within MongoDB's data platform ecosystem?
+Attempts Remaining:∞Unlimited Attempts
+
+Check all answers that apply:
+
+- [X] MongoDB Charts
+- [X] MongoDB BI Connector
+- [ ] RDMBS server
+- [X] MongoDB Compass
