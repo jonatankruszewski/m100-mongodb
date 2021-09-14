@@ -17,13 +17,11 @@
 - Data near users.
 - Atlas as a DAAS
 
-
 ### QUIZ MongoDB in Five Minutes
 
 Problem:
 
 Which of the following are some of the main features of MongoDB?
-Attempts Remaining:∞Unlimited Attempts
 
 Check all answers that apply:
 
@@ -55,7 +53,6 @@ Check all answers that apply:
 - [ ] NoSQL database scale better vertically than traditional relational databases.
 - [X] NoSQL databases were designed to scale large datasets horizontally.
 - [X] Most NoSQL databases have built-in modern features like data redundancy and tolerance to failures.
-
 
 ### Lecture: Database Terminology
 
@@ -169,7 +166,6 @@ Choose the best answer:
 Problem:
 
 Which statements are good descriptions of the Document Model used in MongoDB?
-Attempts Remaining:∞Unlimited Attempts
 
 Check all answers that apply:
 
@@ -264,7 +260,7 @@ Check all answers that apply:
 ### Flexible Methodology for Data Modeling
 
 - Emphasis on workload, not on ER diagram
-- Solouion depends on workload
+- Solution depends on workload
 - Normalization  vs simplicity or performance.
 - Flexible. Three phasses.
 - Identify the worlokad. Size data, quantify ops, qualify ops.
@@ -283,9 +279,9 @@ Check all answers that apply:
 - [X] Apply Patterns.
 - [ ] Draw an Entity-Relationship Diagram.
 
-### Describing a workload.
+### Describing a workload
 
-- First step of our methodology. 
+- First step of our methodology.
 - List of operations, queries. For example, Coffee to deliver to stores. Quantify amount. Qualify the time, is it critial? What is the latency needed? What is the writeConcern needed? From which node to read?
 - Is it a critical write?
 - Usually one or two operations will stand out
@@ -359,15 +355,15 @@ Choose the best answer:
 - [ ] The user should be a subdocument in the address document.
 - [ ] The user document should reference a collection holding the address documents.
 
-
 ### Applying patterns
 
 - Schema design pattern
 - Common language to express representation in your schema model
 
 Some patterns:
+
 - Computed pattern: Good for repetitive calculations.
-- Bucket pattern: Most common on IOT. Data is grouped. One document per device per day, or per hour. 
+- Bucket pattern: Most common on IOT. Data is grouped. One document per device per day, or per hour.
 - Extended reference: Reference to another collection, but keeping the most frequent fields within the parent.
 - Recipes to improve schemas.
 - Some patterns may intruduce data staleness or data duplication.
@@ -433,7 +429,7 @@ Check all answers that apply:
 - Queries that don't use the shard key, won't scale, they will query all the shards
 - Most dataset don't require shards
 - Sharding for write or for read?
-- Choose the best shard key. 
+- Choose the best shard key.
 
 ### QUIZ Sharding
 
@@ -474,8 +470,7 @@ Check all answers that apply:
 - [X] Change streams can be used to create triggers to implement user-defined integrity checks.
 - [X] The document model guarantees referential integrity between parent and child entities.
 
-
-## CHAPTER 3 
+## CHAPTER 3
 
 ### Query languages
 
@@ -538,7 +533,7 @@ Check all answers that apply:
 - [X] MongoDB Aggregations uses sequential stages.
 - [ ] SQL uses sequential statements without nesting.
 
-### MongoDB query language.
+### MongoDB query language
 
 - Key-value pairs. Fields are stringified. Separated by comma.
 - db.collection.find() can filter documents.
@@ -604,14 +599,14 @@ Choose the best answer:
 - Doesn't require additional frameworks
 
 SQL     MONGODB
-SELECT	    db.aggregate()
-WHERE	    $match
-GROUP   	$group
-COUNT	    $count
-LIMIT	    $limit
-ORDER BY	$sort
-JOIN	    $lookup
-UNION ALL	$unionWith
+SELECT      db.aggregate()
+WHERE       $match
+GROUP       $group
+COUNT       $count
+LIMIT       $limit
+ORDER BY    $sort
+JOIN        $lookup
+UNION ALL   $unionWith
 
 ### QUIZ MongoDB Aggregation Framework Queries
 
@@ -660,7 +655,6 @@ Problem:
 Select the MongoDB Aggregation Framework pipeline that is equivalent to the following SQL statement:
 
 'SELECT * FROM people WHERE status = "A" OR age = 50'
-
 
 Choose the best answer:
 
@@ -788,11 +782,8 @@ Attempts Remaining:∞Unlimited Attempts
 Check all answers that apply:
 
 - [ ] Stop the application from interacting with the MongoDB cluster.
-
 - [ ] Stop all the nodes in the replica set at the same time.
-
 - [X] Step down the Primary node and wait for a Secondary node to take over as the new Primary.
-
 
 ### SCHEMA Migration
 
